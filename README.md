@@ -9,8 +9,9 @@
 _Home Assistant integration for the [Emerald Electricity Advisor][emerald-ems]._
 
 > [!NOTE]
-> The Emerald cloud API is undocumented and reverse engineered, so it can change
-> without warning. If something looks wrong, please
+> Confirmed working against a live Emerald account on Home Assistant 2026.9.
+> The cloud API is undocumented and reverse engineered, so it can change without
+> warning. If something looks wrong, please
 > [open an issue](https://github.com/Wayne-Willey/ha-emerald-ems/issues).
 
 ## How it works
