@@ -19,7 +19,7 @@ optional = true
 # that a local `scripts/develop` run matches what the tests exercise.
 homeassistant = "2026.2.3"
 colorlog = "^6.9.0"
-ruff = "^0.15.0"
+ruff = ">=0.15,<0.17"
 
 [tool.poetry.group.test]
 optional = true
