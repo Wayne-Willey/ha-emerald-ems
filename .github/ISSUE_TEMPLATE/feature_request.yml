@@ -1,0 +1,24 @@
+name: "Feature request"
+description: "Suggest an addition or a change"
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What problem would this solve?"
+      description: "Describe the situation you are in, rather than the solution you have in mind."
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: "What would you like it to do?"
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: "Anything else?"
+      description: "Screenshots, API responses you have observed, or links to related work."
+    validations:
+      required: false

@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ha-emerald-ems"
+version = "0.2.0"
+description = "Home Assistant custom integration to fetch data from Emerald EMS"
+authors = ["Wayne Willey <Wayne-Willey@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "custom_components/emerald_ems" }]
+
+[tool.poetry.dependencies]
+# Home Assistant 2026.2 requires Python 3.13.2 or newer.
+python = ">=3.13.2,<3.14"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+# Pinned to the Home Assistant release that the test harness below targets, so
+# that a local `scripts/develop` run matches what the tests exercise.
+homeassistant = "2026.2.3"
+colorlog = "^6.9.0"
+ruff = "^0.15.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+# This package pins its own Home Assistant version; keep the dev pin in step.
+pytest-homeassistant-custom-component = "0.13.316"
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+log_level = "WARNING"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

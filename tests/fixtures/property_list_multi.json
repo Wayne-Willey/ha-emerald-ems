@@ -1,0 +1,41 @@
+{
+  "code": 200,
+  "message": "Property list shown successfully.",
+  "info": {
+    "property": [
+      {
+        "id": "property-uuid-1",
+        "property_name": "123 EXAMPLE STREET",
+        "state": "VIC",
+        "postal_code": "3000",
+        "tariff_structure": [],
+        "devices": [
+          {
+            "id": "device-uuid-1",
+            "serial_number": "2108123123",
+            "device_category": "Electricity Advisor",
+            "device_name": "EIAdv 2108123123",
+            "device_status": "Active"
+          }
+        ]
+      },
+      {
+        "id": "property-uuid-2",
+        "property_name": "456 OTHER ROAD",
+        "state": "NSW",
+        "postal_code": "2000",
+        "tariff_structure": [],
+        "devices": [
+          {
+            "id": "device-uuid-2",
+            "serial_number": "2108999999",
+            "device_category": "Electricity Advisor",
+            "device_name": "EIAdv 2108999999",
+            "device_status": "Active"
+          }
+        ]
+      }
+    ],
+    "shared_property": []
+  }
+}

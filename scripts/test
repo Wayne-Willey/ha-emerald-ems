@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Run the test suite. Needs no Emerald credentials.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+poetry run pytest "$@"

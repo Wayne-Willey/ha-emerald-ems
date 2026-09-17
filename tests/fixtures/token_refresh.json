@@ -1,0 +1,10 @@
+{
+  "code": 200,
+  "message": "Token refreshed successfully.",
+  "info": {
+    "id": "customer-uuid-1",
+    "email": "user@example.com",
+    "premium": 1
+  },
+  "token": "token-two"
+}

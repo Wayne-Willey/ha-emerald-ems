@@ -1,0 +1,56 @@
+name: "Bug report"
+description: "Something is not working as it should"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        Please do not include your Emerald password or any bearer token.
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What happened?"
+      description: "What did you expect, and what happened instead?"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: "How can it be reproduced?"
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: false
+  - type: input
+    id: ha_version
+    attributes:
+      label: "Home Assistant version"
+      placeholder: "2026.9.2"
+    validations:
+      required: true
+  - type: input
+    id: integration_version
+    attributes:
+      label: "Integration version"
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Log output"
+      description: "Debug logging is enabled by default in the dev container; otherwise add the integration to your logger config."
+      render: text
+    validations:
+      required: false
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: "Diagnostics"
+      description: "Downloaded from the device page. Sensitive values are redacted automatically."
+      render: json
+    validations:
+      required: false

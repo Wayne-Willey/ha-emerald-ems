@@ -1,0 +1,11 @@
+{
+  "code": 200,
+  "message": "Login successful.",
+  "info": {
+    "id": "customer-uuid-1",
+    "email": "user@example.com",
+    "first_name": "Test",
+    "premium": 1
+  },
+  "token": "token-one"
+}

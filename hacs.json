@@ -1,0 +1,7 @@
+{
+	"name": "Emerald EMS",
+	"hide_default_branch": true,
+	"homeassistant": "2026.2.0",
+	"hacs": "1.33.0",
+	"render_readme": true
+}

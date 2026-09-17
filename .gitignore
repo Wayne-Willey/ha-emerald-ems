@@ -1,0 +1,24 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+
+# Environments
+.venv*/
+.env
+
+# Editor settings, except the shared tasks
+.vscode/*
+!.vscode/tasks.json
+
+# Home Assistant instance created by scripts/develop
+config/*
+!config/configuration.yaml

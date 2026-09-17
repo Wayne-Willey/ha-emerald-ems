@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Run Home Assistant against the local copy of the integration.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+if [[ ! -f "config/configuration.yaml" ]]; then
+    mkdir -p config
+    poetry run hass --config config --script ensure_config
+fi
+
+# Home Assistant loads custom components from its config directory. Putting
+# custom_components on PYTHONPATH keeps the repository layout tidy without
+# needing a symlink into config/.
+export PYTHONPATH="${PYTHONPATH}:${PWD}/custom_components"
+
+poetry run hass --config config --debug

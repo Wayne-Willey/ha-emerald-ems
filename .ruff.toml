@@ -1,0 +1,53 @@
+target-version = "py313"
+line-length = 88
+
+[lint]
+select = [
+	"ASYNC", # flake8-async, catches blocking calls in async code
+	"B",     # flake8-bugbear
+	"BLE",   # flake8-blind-except
+	"C4",    # flake8-comprehensions
+	"C90",   # mccabe complexity
+	"D",     # pydocstyle
+	"E",     # pycodestyle errors
+	"F",     # pyflakes
+	"I",     # isort
+	"LOG",   # flake8-logging
+	"N",     # pep8-naming
+	"PGH",   # pygrep-hooks
+	"PIE",   # flake8-pie
+	"PT",    # flake8-pytest-style
+	"RET",   # flake8-return
+	"RUF",   # ruff-specific rules
+	"SIM",   # flake8-simplify
+	"SLF",   # flake8-self, private member access
+	"T20",   # flake8-print
+	"TRY",   # tryceratops
+	"UP",    # pyupgrade
+	"W",     # pycodestyle warnings
+]
+
+ignore = [
+	"D203",    # incompatible with D211
+	"D213",    # incompatible with D212
+	"E501",    # line length is handled by the formatter
+	"TRY003",  # long messages outside the exception class are fine here
+	"TRY400",  # logger.error is deliberate in places
+]
+
+[lint.per-file-ignores]
+"tests/*" = [
+	"D100",   # missing docstring in public module
+	"D103",   # missing docstring in public function
+	"D104",   # missing docstring in public package
+	"SLF001", # tests may reach into private state
+]
+
+[lint.flake8-pytest-style]
+fixture-parentheses = false
+
+[lint.mccabe]
+max-complexity = 15
+
+[format]
+docstring-code-format = true

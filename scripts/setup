@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Prepare a development environment.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+python -m pip install --upgrade pip
+python -m pip install "poetry==2.3.3"
+
+poetry config virtualenvs.in-project true
+poetry install --with dev,test

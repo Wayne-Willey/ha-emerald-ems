@@ -1,0 +1,17 @@
+{
+  "domain": "emerald_ems",
+  "name": "Emerald EMS",
+  "codeowners": [
+    "@Wayne-Willey"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "recorder"
+  ],
+  "documentation": "https://github.com/Wayne-Willey/ha-emerald-ems",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Wayne-Willey/ha-emerald-ems/issues",
+  "requirements": [],
+  "version": "0.2.0"
+}

@@ -1,0 +1,18 @@
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    ignore:
+      # The Home Assistant version has to stay in step with the minimum
+      # declared in hacs.json, and with the test harness below, so both are
+      # bumped deliberately rather than automatically.
+      - dependency-name: "homeassistant"
+      - dependency-name: "pytest-homeassistant-custom-component"

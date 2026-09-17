@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Lint the project, fixing what can be fixed automatically.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+poetry run ruff check . --fix
+poetry run ruff format .

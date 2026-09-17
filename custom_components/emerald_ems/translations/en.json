@@ -1,0 +1,64 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Emerald EMS account",
+        "description": "Sign in with the email address and password you use in the Emerald app.",
+        "data": {
+          "username": "Email address",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "The email address registered with Emerald.",
+          "password": "Your Emerald account password. It is stored locally and only sent to Emerald."
+        }
+      },
+      "device": {
+        "title": "Choose a device",
+        "description": "This account has more than one metering device. Choose the one to add. Add the integration again to follow another.",
+        "data": {
+          "device_id": "Device"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-enter your password",
+        "description": "Emerald rejected the stored credentials for {username}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid email address or password.",
+      "cannot_connect": "Could not reach the Emerald service.",
+      "unknown": "Unexpected error. Check the logs for details."
+    },
+    "abort": {
+      "already_configured": "This device is already configured.",
+      "no_devices": "No metering devices were found on this Emerald account.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "today_energy": {
+        "name": "Energy today"
+      },
+      "today_cost": {
+        "name": "Cost today"
+      },
+      "current_power": {
+        "name": "Current power"
+      },
+      "average_daily_spend": {
+        "name": "Average daily spend"
+      },
+      "daily_trend": {
+        "name": "Daily trend"
+      },
+      "last_synced": {
+        "name": "Last synced"
+      }
+    }
+  }
+}

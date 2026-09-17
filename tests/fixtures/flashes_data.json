@@ -1,0 +1,107 @@
+{
+  "code": 200,
+  "message": "Device Flashes data shown successfully.",
+  "info": {
+    "id": "device-uuid-1",
+    "daily_trend": -80,
+    "monthly_trend": 0,
+    "synced_timestamp": 1710038100000,
+    "average_daily_spend": 1.55,
+    "daily_consumptions": [
+      {
+        "date_string": "2024-03-09",
+        "is_complete": true,
+        "total_consumption_of_day": 1500,
+        "total_cost_of_day": 0.3,
+        "total_kwh_of_day": 1.5,
+        "hourly_consumptions": [
+          {
+            "hour_string": "00:00",
+            "kwh": 0.5,
+            "cost": 0.1,
+            "number_of_flashes": 500,
+            "is_complete": true
+          },
+          {
+            "hour_string": "01:00",
+            "kwh": 0.4,
+            "cost": 0.08,
+            "number_of_flashes": 400,
+            "is_complete": true
+          },
+          {
+            "hour_string": "02:00",
+            "kwh": 0.6,
+            "cost": 0.12,
+            "number_of_flashes": 600,
+            "is_complete": true
+          }
+        ],
+        "ten_minute_consumptions": [
+          {
+            "time_string": "00:00",
+            "kwh": 0.1,
+            "cost": 0.02,
+            "number_of_flashes": 100
+          },
+          {
+            "time_string": "00:10",
+            "kwh": 0.2,
+            "cost": 0.04,
+            "number_of_flashes": 200
+          }
+        ]
+      },
+      {
+        "date_string": "2024-03-10",
+        "is_complete": false,
+        "total_consumption_of_day": 600,
+        "total_cost_of_day": 0.12,
+        "total_kwh_of_day": 0.6,
+        "hourly_consumptions": [
+          {
+            "hour_string": "00:00",
+            "kwh": 0.3,
+            "cost": 0.06,
+            "number_of_flashes": 300,
+            "is_complete": true
+          },
+          {
+            "hour_string": "01:00",
+            "kwh": 0.2,
+            "cost": 0.04,
+            "number_of_flashes": 200,
+            "is_complete": true
+          },
+          {
+            "hour_string": "02:00",
+            "kwh": 0.1,
+            "cost": 0.02,
+            "number_of_flashes": 100,
+            "is_complete": false
+          }
+        ],
+        "ten_minute_consumptions": [
+          {
+            "time_string": "02:10",
+            "kwh": 0.05,
+            "cost": 0.01,
+            "number_of_flashes": 50
+          },
+          {
+            "time_string": "02:20",
+            "kwh": 0.06,
+            "cost": 0.012,
+            "number_of_flashes": 60
+          },
+          {
+            "time_string": "02:30",
+            "kwh": 0.01,
+            "cost": 0.002,
+            "number_of_flashes": 10
+          }
+        ]
+      }
+    ]
+  }
+}

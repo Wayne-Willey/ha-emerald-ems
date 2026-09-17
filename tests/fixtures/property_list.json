@@ -1,0 +1,38 @@
+{
+  "code": 200,
+  "message": "Property list shown successfully.",
+  "info": {
+    "property": [
+      {
+        "id": "property-uuid-1",
+        "property_name": "123 EXAMPLE STREET",
+        "state": "VIC",
+        "postal_code": "3000",
+        "tariff_structure": [
+          {
+            "supply_charge": 0.6121,
+            "unit_charge": 0.2035,
+            "is_flat_rate": 1,
+            "gst_include": 1,
+            "discount_percentage": 0
+          }
+        ],
+        "devices": [
+          {
+            "id": "device-uuid-1",
+            "serial_number": "2108123123",
+            "device_category": "Electricity Advisor",
+            "device_name": "EIAdv 2108123123",
+            "device_mac_address": "30:1B:97:00:00:00",
+            "firmware_version": "2.1.1",
+            "NMI": "62824023840",
+            "impulse_rate": 1000,
+            "impulse_rate_type": "imp/kWh",
+            "device_status": "Active"
+          }
+        ]
+      }
+    ],
+    "shared_property": []
+  }
+}
