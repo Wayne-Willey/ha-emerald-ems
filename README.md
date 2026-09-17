@@ -1,17 +1,17 @@
 # Emerald EMS for Home Assistant
 
 [![GitHub Release][releases-shield]][releases]
-[![GitHub Activity][commits-shield]][commits]
 [![License][license-shield]](LICENSE)
 [![hacs][hacsbadge]][hacs]
+[![Tests][tests-shield]][tests]
+[![Validate][validate-shield]][validate]
 
 _Home Assistant integration for the [Emerald Electricity Advisor][emerald-ems]._
 
 > [!NOTE]
-> The integration is complete and covered by an automated test suite, but the
-> Emerald cloud API is undocumented and reverse engineered. It has not yet been
-> verified against a live account. Treat the first install as a trial and
-> please report anything that looks wrong.
+> The Emerald cloud API is undocumented and reverse engineered, so it can change
+> without warning. If something looks wrong, please
+> [open an issue](https://github.com/Wayne-Willey/ha-emerald-ems/issues).
 
 ## How it works
 
@@ -31,14 +31,15 @@ reset and permanently inflate your energy history.
 
 Two statistics are created per device:
 
-| Statistic | Contents |
-|---|---|
-| `emerald_ems:<device>_energy` | Hourly energy, in kWh |
-| `emerald_ems:<device>_cost` | Hourly cost, in your Home Assistant currency |
+| Statistic id | Shown as | Contents |
+|---|---|---|
+| `emerald_ems:<device id>_energy` | `<device name> energy` | Hourly energy, in kWh |
+| `emerald_ems:<device id>_cost` | `<device name> cost` | Hourly cost, in your Home Assistant currency |
 
-Add the energy statistic under **Settings > Dashboards > Energy > Grid
-consumption**, and attach the cost statistic to it as the "use an entity
-tracking total costs" option.
+To wire them up, go to **Settings > Dashboards > Energy > Grid consumption**,
+add the energy statistic, then attach the cost statistic to it using the "use
+an entity tracking total costs" option. Search the picker by your device name,
+for example `EIAdv 2108123123 energy`.
 
 On first setup the integration imports the last 30 days, so history from before
 you installed it appears straight away.
@@ -46,7 +47,8 @@ you installed it appears straight away.
 ### Sensors
 
 These are the live view of the account. They deliberately carry no state class,
-because the statistics above already cover long term history.
+because the statistics above already cover long term history. Giving them one
+would double count against those statistics.
 
 | Sensor | Source |
 |---|---|
@@ -87,6 +89,23 @@ Assistant config entry and are only ever sent to Emerald.
 When Emerald stops accepting the stored password, Home Assistant raises a
 re-authentication prompt rather than silently failing.
 
+## Troubleshooting
+
+**Readings look stale.** Check the "Last synced" sensor. If it is hours old,
+the LiveLink gateway has not uploaded, and no amount of polling will help.
+Opening the Emerald phone app forces a sync.
+
+**The current hour is missing from the energy dashboard.** Expected. An hour is
+only written once Emerald marks it complete; it appears on a later poll.
+
+**Home Assistant is asking me to re-authenticate.** The stored password stopped
+working. Emerald tokens last around a day and are renewed automatically, so
+this normally means the password itself changed.
+
+**Something else.** Download diagnostics from the device page and attach them
+to an issue. Credentials, account identifiers, serial numbers and your address
+are redacted before the file is written, so it is safe to share.
+
 ## Known limitations
 
 - **Polling, not streaming.** Data arrives when the gateway syncs. Polling
@@ -102,12 +121,13 @@ re-authentication prompt rather than silently failing.
 
 ## Contributing
 
-See the [contribution guidelines](CONTRIBUTING.md). Run the checks with:
+See the [contribution guidelines](CONTRIBUTING.md).
 
 ```bash
-poetry install --with dev,test
-poetry run ruff check .
-poetry run pytest
+scripts/setup    # install Poetry and the dev and test dependencies
+scripts/lint     # ruff check --fix, then ruff format
+scripts/test     # the full pytest suite
+scripts/develop  # a throwaway Home Assistant with the integration loaded
 ```
 
 The test suite is fully mocked and needs no Emerald credentials.
@@ -115,10 +135,12 @@ The test suite is fully mocked and needs no Emerald credentials.
 ***
 
 [emerald-ems]: http://emerald-ems.com.au/
-[commits-shield]: https://img.shields.io/github/commit-activity/y/Wayne-Willey/ha-emerald-ems.svg?style=for-the-badge
-[commits]: https://github.com/Wayne-Willey/ha-emerald-ems/commits/main
 [license-shield]: https://img.shields.io/github/license/Wayne-Willey/ha-emerald-ems.svg?style=for-the-badge
 [releases-shield]: https://img.shields.io/github/release/Wayne-Willey/ha-emerald-ems.svg?style=for-the-badge
 [releases]: https://github.com/Wayne-Willey/ha-emerald-ems/releases
+[tests-shield]: https://img.shields.io/github/actions/workflow/status/Wayne-Willey/ha-emerald-ems/test.yml?branch=main&style=for-the-badge&label=tests
+[tests]: https://github.com/Wayne-Willey/ha-emerald-ems/actions/workflows/test.yml
+[validate-shield]: https://img.shields.io/github/actions/workflow/status/Wayne-Willey/ha-emerald-ems/validate.yml?branch=main&style=for-the-badge&label=hassfest%20%2B%20hacs
+[validate]: https://github.com/Wayne-Willey/ha-emerald-ems/actions/workflows/validate.yml
 [hacs]: https://hacs.xyz
 [hacsbadge]: https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge
